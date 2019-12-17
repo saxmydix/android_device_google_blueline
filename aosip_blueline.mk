@@ -22,7 +22,7 @@
 #
 
 # Include Havoc common configuration
-include vendor/havoc/config/common_full_phone.mk
+include vendor/aosip/config/common_full_phone.mk
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/google/crosshatch/aosp_blueline.mk)
@@ -31,19 +31,24 @@ $(call inherit-product, device/google/crosshatch/aosp_blueline.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
-PRODUCT_NAME := havoc_blueline
+PRODUCT_NAME := aosip_blueline
 PRODUCT_DEVICE := blueline
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Pixel 3
 PRODUCT_MANUFACTURER := Google
 
-HAVOC_BUILD_TYPE := Official
 TARGET_SCREEN_HEIGHT := 2880
 TARGET_SCREEN_WIDTH := 1440
 
-# Maintainer Prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.havoc.maintainer=slothdabski
+# Gapps
+TARGET_GAPPS_ARCH := arm64
+TARGET_BOOT_ANIMATION_RES := 1080
+IS_PHONE := true
+TARGET_MINIMAL_APPS := false
+TARGET_INCLUDE_STOCK_ARCORE := true
+
+# Official-ify
+AOSIP_BUILDTYPE := CI
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="blueline" \

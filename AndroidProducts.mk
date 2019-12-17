@@ -15,4 +15,10 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_blueline.mk
+    $(LOCAL_DIR)/aosip_blueline.mk
+
+
+COMMON_LUNCH_CHOICES := \
+    aosip_blueline-user \
+    aosip_blueline-userdebug \
+    aosip_blueline-eng
